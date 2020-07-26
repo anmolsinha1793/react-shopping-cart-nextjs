@@ -4,10 +4,13 @@ import axios from 'axios';
 import baseUrl from '../../utils/baseUrl';
 import { useRouter } from 'next/router';
 
-function ProductAttributes({ description, _id }) {
+function ProductAttributes({ description, _id, user }) {
   const [modal, setModal] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
   const router = useRouter();
+  const isRoot = user && user.role === 'root';
+  const isAdmin = user && user.role === 'admin';
+  const isRootorisAdmin = isRoot || isAdmin;
 
   async function handleDelete() {
     setLoading(true);
@@ -21,7 +24,7 @@ function ProductAttributes({ description, _id }) {
   return (<>
   <Header as="h3">About this product</Header>
   <p>{description}</p>
-  <Button 
+  {isRootorisAdmin && <><Button 
   icon="trash alternate outline"
   color="red"
   content="Delete Product"
@@ -36,7 +39,7 @@ function ProductAttributes({ description, _id }) {
       <Button negative icon="trash" labelPosition="right" content="Delete" onClick={handleDelete} disabled={loading}/>
     </Modal.Actions>
     </Segment>
-  </Modal>
+  </Modal></>}
   </>);
 }
 
