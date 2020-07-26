@@ -1,8 +1,8 @@
-import mongoose, { Schema } from 'mongoose';
+import mongoose from 'mongoose';
 
 const {ObjectId, Number} = mongoose.Schema.Types;
 
-const OrderSchema = new Schema({
+const OrderSchema = new mongoose.Schema({
     user: {
         type: ObjectId,
         ref: 'User'
@@ -27,8 +27,8 @@ const OrderSchema = new Schema({
         type: Number,
         required: true
     }
-}, {
+},{
     timestamps: true
-});
+})
 
-export default mongoose.models.Order || mongoose.model('Order', OrderSchema);
+export default mongoose.models.Order || mongoose.model("Order", OrderSchema);
