@@ -1,5 +1,6 @@
 import AccountHeader from '../components/Account/AccountHeader';
 import AccountOrders from '../components/Account/AccountOrders';
+import AccountPermissions from '../components/Account/AccountPermissions';
 import {parseCookies} from 'nookies';
 import baseUrl from '../utils/baseUrl';
 import axios from 'axios';
@@ -12,7 +13,9 @@ function Account( {user, orders} ) {
   />
   <AccountOrders
   orders={orders}
-  /></>;
+  />
+  {user.role === 'root' && <AccountPermissions currentUserId={user._id}/>}
+  </>;
 }
 Account.getInitialProps = async(ctx) => {
   const {token} = parseCookies(ctx);
