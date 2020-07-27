@@ -6,7 +6,6 @@ import baseUrl from '../utils/baseUrl';
 import axios from 'axios';
 
 function Account( {user, orders} ) {
-  console.log(orders);
   return <>
   <AccountHeader
   {...user}
@@ -25,7 +24,6 @@ Account.getInitialProps = async(ctx) => {
   const payload = { headers: { Authorization: token }};
   const url = `${baseUrl}/api/orders`;
   const response = await axios.get(url, payload);
-  console.log(response.data);
   return response.data;
 }
 export default Account;

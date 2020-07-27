@@ -10,7 +10,6 @@ function Home({ products, totalPages }) {
 }
 
 Home.getInitialProps = async(ctx) => {
-  console.log(ctx.query);
   const page = ctx.query.page ? ctx.query.page : '1';
   //* number of products to show per page
   const size = 4;

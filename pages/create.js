@@ -20,7 +20,6 @@ function CreateProduct() {
 
   React.useEffect(() => {
     const isProduct = Object.values(product).every(elm => Boolean(elm));
-    console.log(isProduct);
     setDisabled(!isProduct);
   }, [product])
   
@@ -37,8 +36,7 @@ function CreateProduct() {
         ...prevState,
         [name]: value 
       }));
-    } 
-    console.log(product);
+    }
   }
   async function handleSubmit(event) {
     try{
@@ -46,12 +44,10 @@ function CreateProduct() {
       setLoading(true);
       setError('');
       const mediaUrl = await handleImageUpload();
-      console.log({mediaUrl});
       const url = `${baseUrl}/api/product`;
       const { name, price, description } = product;
       const payload = { name:'', price, description, mediaUrl };
-      const response = await axios.post(url, payload);
-      console.log({response});
+      await axios.post(url, payload);
       setProduct(INITIAL_PRODUCT);
       setSuccess(true);
     } catch(err) {
