@@ -6,7 +6,7 @@ function ProductList({ products }) {
       header: product.name,
       image: product.mediaUrl,
       color: 'teal',
-      meta: `$${product.price}`,
+      meta: `Rs. ${product.price}`,
       fluid: true,
       childKey: product._id,
       href: `/product?_id=${product._id}`
