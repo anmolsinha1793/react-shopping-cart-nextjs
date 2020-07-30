@@ -8,7 +8,7 @@ function ProductSummary({ name, mediaUrl, _id, price, sku, user }) {
         <Item.Image size="medium" src={mediaUrl}/>
         <Item.Content>
           <Item.Header>{name}</Item.Header>
-          <Item.Description><p>${price}</p>
+          <Item.Description><p>{'\u20B9'} {price}</p>
   <Label>SKU: {sku}</Label>
           </Item.Description>
           <Item.Extra>

@@ -12,7 +12,7 @@ function CartItemList({products, user, handleRemoveFromCart, success}) {
         </Item.Header>
       ),
       image: pdt.product.mediaUrl,
-      meta: `${pdt.quantity} x Rs. ${pdt.product.price}`,
+      meta: `${pdt.quantity} x \u20B9 ${pdt.product.price}`,
       fluid: 'true',
       extra: (
         <Button

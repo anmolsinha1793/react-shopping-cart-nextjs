@@ -15,7 +15,7 @@ function AccountOrders({ orders }) {
         content: (
           <>
           <List.Header as="h3">
-           Total: ${order.total}
+           Total: {'\u20B9'} {order.total}
            <Label
            content={order.email}
            icon="mail"
@@ -33,7 +33,7 @@ function AccountOrders({ orders }) {
                     {p.product.name}
                   </List.Header>
                   <List.Description>
-                    {p.quantity} x Rs. {p.product.price}
+                    {p.quantity} x {'\u20B9'} {p.product.price}
                   </List.Description>
                 </List.Content>
                 <List.Content floated="right">

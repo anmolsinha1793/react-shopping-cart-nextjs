@@ -17,7 +17,7 @@ function CartSummary({ products, handleCheckout, success }) {
   return <>
   <Divider />
   <Segment clearing size="large">
-  <strong>Sub total:</strong> Rs. {cartAmount}
+  <strong>Sub total:</strong> {'\u20B9'} {cartAmount}
   <StripeCheckout
   name="React Shopping Cart"
   amount={stripeAmount}
