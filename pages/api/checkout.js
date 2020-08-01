@@ -7,7 +7,12 @@ import Order from '../../models/Order';
 
 const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 
-
+/**
+  * This method is used to make payment once the user wants to checkout with products added in cart
+  * @param req - request details
+  * @param res - response details
+  * @returns Promise
+  */
 export default async(req, res) => {
     const {paymentData} = req.body;
     try {

@@ -9,6 +9,10 @@ function Home({ products, totalPages }) {
     <ProductPagination totalPages={totalPages}/></>;
 }
 
+/**
+  * This method is used to get initial props such as products
+  * @returns products[]
+  */
 Home.getInitialProps = async(ctx) => {
   const page = ctx.query.page ? ctx.query.page : '1';
   //* number of products to show per page

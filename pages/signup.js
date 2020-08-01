@@ -21,6 +21,11 @@ function Signup() {
     const isUser = Object.values(user).every(elm => Boolean(elm));
     setDisabled(!isUser);
   }, [user])
+
+  /**
+  * This method is used to handle state change of user
+  * @returns void
+  */
   function handleChange() {
     const { name,value } = event.target;
     setUser(prevState => ({
@@ -28,6 +33,11 @@ function Signup() {
       [name]: value
     }))
   }
+
+  /**
+  * This method is triggered when user tries to sign-up
+  * @returns void
+  */
   async function handleSubmit(event) {
     event.preventDefault();
     try {

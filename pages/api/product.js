@@ -4,6 +4,12 @@ import Cart from '../../models/Cart';
 
 connectDb();
 
+/**
+  * This method is used to handle get/put/delete conditionally
+  * @param req - request details
+  * @param res - response details
+  * @returns void
+  */
 export default async (req, res) => {
     switch(req.method){
         case "GET":
@@ -21,11 +27,24 @@ export default async (req, res) => {
     }
 }
 
+/**
+  * This method is used to fetch the product with the id if it exists
+  * @param req - request details
+  * @param res - response details
+  * @returns Promise
+  */
 async function handleGetRequest(req, res) {
     const { _id } = req.query;
     const product = await Product.findOne({ _id });
     res.status(200).json(product);
 }
+
+/**
+  * This method is used to create new product with the given details
+  * @param req - request details
+  * @param res - response details
+  * @returns Promise
+  */
 async function handlePostRequest(req, res) {
     const {name, price, description, mediaUrl} = req.body;
     try{
@@ -45,6 +64,13 @@ async function handlePostRequest(req, res) {
     }
     
 }
+
+/**
+  * This method is used to delete the product based on id
+  * @param req - request details
+  * @param res - response details
+  * @returns Promise
+  */
 async function handleDeleteRequest(req, res) {
     const { _id } = req.query;
     try {

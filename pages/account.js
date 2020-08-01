@@ -16,6 +16,10 @@ function Account( {user, orders} ) {
   {user.role === 'root' && <AccountPermissions currentUserId={user._id}/>}
   </>;
 }
+/**
+  * This method is used to get the initial props such as user and orders 
+  * @returns orders[]
+  */
 Account.getInitialProps = async(ctx) => {
   const {token} = parseCookies(ctx);
   if (!token) {

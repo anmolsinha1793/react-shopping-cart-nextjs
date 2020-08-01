@@ -47,9 +47,17 @@ class MyApp extends App {
     return { pageProps };
   }
 
+  /**
+  * This method is used to handle universal logout for the app
+  * @returns void
+  */
   componentDidMount() {
     window.addEventListener('storage', this.syncLogout);
   }
+  /**
+  * This method is used to handle universal logout for the app
+  * @returns void
+  */
   syncLogout = event => {
     if (event.key === 'logout') {
       console.log('logged out from storage');

@@ -23,6 +23,10 @@ function CreateProduct() {
     setDisabled(!isProduct);
   }, [product])
   
+  /**
+  * This method is triggered whenever there is a change in name, value, file
+  * @returns void
+  */
   function handleChange(event) {
     const {name, value, files} = event.target;
     if(name === 'media'){
@@ -38,6 +42,11 @@ function CreateProduct() {
       }));
     }
   }
+
+  /**
+  * This method is used to create a new product based on the new data
+  * @returns void
+  */
   async function handleSubmit(event) {
     try{
       event.preventDefault();
@@ -57,6 +66,10 @@ function CreateProduct() {
     }
   }
 
+  /**
+  * This method is used to handle image-upload to cloudinary server
+  * @returns string
+  */
   async function handleImageUpload() {
     const data = new FormData();
     data.append('file', product.media);

@@ -5,6 +5,12 @@ import jwt from 'jsonwebtoken';
 
 connectDb();
 
+/**
+  * This method is used to check if the user already exits with the given data
+  * @param req - request details
+  * @param res - response details
+  * @returns Promise
+  */
 export default async (req, res) => {
     const {email, password} = req.body;
     try {

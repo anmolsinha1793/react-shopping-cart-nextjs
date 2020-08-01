@@ -12,6 +12,10 @@ function Product({product, user}) {
   );
 }
 
+/**
+  * This method is used to get initial props such as a single product
+  * @returns product
+  */
 Product.getInitialProps = async ({ query: { _id } }) => {
   const url = `${baseUrl}/api/product`;
   const payload = { params: { _id }}

@@ -23,6 +23,12 @@ export default async (req, res) => {
             break;        
     }
 }
+/**
+  * This method is used to fetch the products in cart
+  * @param req - request details
+  * @param res - response details
+  * @returns Promise
+  */
 async function handleGetRequest(req, res) {
     if(!(`authorization` in req.headers)) {
         return res.status(401).send(`No authorization token`)
@@ -38,6 +44,12 @@ async function handleGetRequest(req, res) {
         res.status(403).send(`Please login again`);
     }
 }
+/**
+  * This method is used to modify the products in cart
+  * @param req - request details
+  * @param res - response details
+  * @returns Promise
+  */
 async function handlePutRequest(req, res) {
     const {quantity, productId} = req.body;
     if(!(`authorization` in req.headers)) {
@@ -70,7 +82,12 @@ async function handlePutRequest(req, res) {
         res.status(403).send(`Please login again`);
     }
 }
-
+/**
+  * This method is used to delete the products in cart
+  * @param req - request details
+  * @param res - response details
+  * @returns Promise
+  */
 async function handleDeleteRequest(req, res) {
     const {productId} = req.query;
     if(!(`authorization` in req.headers)) {

@@ -4,6 +4,12 @@ import connectDb from '../../utils/connectDb';
 
 connectDb();
 
+/**
+  * This method is used to handle get/put request conditionally
+  * @param req - request details
+  * @param res - response details
+  * @returns void
+  */
 export default async (req, res) => {
     switch (req.method) {
         case "GET":
@@ -17,13 +23,19 @@ export default async (req, res) => {
             break;
     }
 }
-async function handleGetRequest (req, res) {
-    if(!(`authorization` in req.headers)) {
+/**
+  * This method is used to get the user by fetching the userid and matching the same in db
+  * @param req - request
+  * @param res - response
+  * @returns Promise
+  */
+async function handleGetRequest(req, res) {
+    if (!(`authorization` in req.headers)) {
         return res.status(401).send(`No authorization token`)
     }
 
-    try { 
-        const {userId} = jwt.verify(req.headers.authorization, process.env.JWT_SECRET);
+    try {
+        const { userId } = jwt.verify(req.headers.authorization, process.env.JWT_SECRET);
         const user = await User.findOne({ _id: userId });
         if (user) {
             res.status(200).json(user);
@@ -34,12 +46,17 @@ async function handleGetRequest (req, res) {
         res.status(403).send(`Invalid token`);
     }
 }
-
-async function handlePutRequest (req, res) {
-    const {_id, role} = req.body
+/**
+  * This method is used to change the user role on the db
+  * @param req - request details
+  * @param res - response details
+  * @returns Promise
+  */
+async function handlePutRequest(req, res) {
+    const { _id, role } = req.body
     await User.findOneAndUpdate(
-        {_id},
-        {role}
+        { _id },
+        { role }
     )
     res.status(203).send(`User Updated`);
 }

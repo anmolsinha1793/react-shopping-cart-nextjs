@@ -13,6 +13,10 @@ function Cart({ products, user }) {
   const [success, setSuccess] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
 
+  /**
+  * This method is used to remove items from card based on product id
+  * @returns void
+  */
   async function handleRemoveFromCart(productId) {
     const url = `${baseUrl}/api/cart`;
     const token = cookie.get('token');
@@ -23,6 +27,11 @@ function Cart({ products, user }) {
     const response = await axios.delete(url,payload);
     setCartProducts(response.data);
   }
+
+  /**
+  * This method is used to checkout user with the selected products
+  * @returns void
+  */
   async function handleCheckout(paymentData) {
     try {
       setLoading(true);
@@ -48,7 +57,10 @@ function Cart({ products, user }) {
     </Segment>
   );
 }
-
+/**
+  * This method is used to get initial props such as products in the cart
+  * @returns void
+  */
 Cart.getInitialProps = async ctx => {
   const {token} = parseCookies(ctx);
   if(!token) {

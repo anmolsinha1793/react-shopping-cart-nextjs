@@ -3,6 +3,13 @@ import connectDb from '../../utils/connectDb';
 
 connectDb();
 
+/**
+  * This method is used to fetch the products so that they can be rendered based on configuration
+  * on the product list screen
+  * @param req - request details
+  * @param res - response details
+  * @returns Promise
+  */
 export default async (req, res) => {
     const { page, size } = req.query;
     //* convert the query string values to numbers

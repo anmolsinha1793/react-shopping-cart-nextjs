@@ -8,6 +8,12 @@ import Cart from '../../models/Cart';
 
 connectDb();
 
+/**
+  * This method is used to signup a new user
+  * @param req - request details
+  * @param res - response details
+  * @returns Promise
+  */
 export default async (req, res) => {
     const { name, email, password} = req.body;
     try {
