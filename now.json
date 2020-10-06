@@ -1,6 +1,6 @@
 {
   "name": "adireactstore",
-  "alias": "<insert-your-alias>.now.sh",
+  "alias": "react-shopping-cart-adi.vercel.app",
   "version": 2,
   "env": {
     "MONGO_SRV": "mongodb+srv://AdiJenkins:root@reactshoppingcart.boyhu.mongodb.net/test?retryWrites=true&w=majority",
