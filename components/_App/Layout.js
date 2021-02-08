@@ -8,7 +8,7 @@ function Layout({ children, user }) {
   return (
     <>
       <Head>
-        <HeadContent />
+        {/* <HeadContent /> */}
         {/* Stylesheets */}
         <link rel="stylesheet" type="text/css" href="/static/styles.css" />
         <link rel="stylesheet" type="text/css" href="/static/nprogress.css" />
